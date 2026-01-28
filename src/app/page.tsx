@@ -162,14 +162,14 @@ export default function LandingPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left - Message */}
               <div className="stagger">
-                <p className="text-mono text-[var(--accent)] text-sm mb-4 tracking-widest">
+                <p className="text-mono text-[var(--brand-secondary)] text-sm mb-4 tracking-widest">
                   FREE COMPLIANCE CHECK FOR CANADIAN BUSINESSES
                 </p>
 
                 <h1 className="text-display text-display-lg text-[var(--cream)] mb-6">
                   Is Your AI
                   <br />
-                  <span className="text-[var(--accent)]">Breaking</span>
+                  <span className="text-[var(--brand-secondary)]">Breaking</span>
                   <br />
                   The Law?
                 </h1>
@@ -209,7 +209,7 @@ export default function LandingPage() {
                   <p className="text-mono text-[var(--cream)] text-sm mb-2 tracking-widest lg:text-right">
                     PENALTY PER VIOLATION
                   </p>
-                  <p className="number-massive text-[var(--accent)] animate-number">
+                  <p className="number-massive text-[var(--brand-secondary)] animate-number">
                     $100K Fine
                   </p>
                 </div>
@@ -258,14 +258,14 @@ export default function LandingPage() {
               <h2 className="text-display text-display-md text-[var(--cream)] mb-4">
                 It Started With One Upload…
               </h2>
-              <div className="w-24 h-[3px] bg-[var(--accent)] mx-auto" />
+              <div className="w-24 h-[3px] bg-[var(--brand-secondary)] mx-auto" />
             </div>
 
             {/* Timeline - All icons centered vertically, text alternating left/right */}
             <div className="relative max-w-4xl mx-auto">
               {/* Vertical line - hidden on mobile, shown on md+ */}
               <div
-                className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[3px] bg-[var(--accent)]/30 -translate-x-1/2"
+                className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[3px] bg-[var(--brand-secondary)]/30 -translate-x-1/2"
                 aria-hidden="true"
               />
 
@@ -274,13 +274,13 @@ export default function LandingPage() {
                 {/* Step 1 - Icon center, text RIGHT */}
                 <div className="timeline-step flex items-start md:grid md:grid-cols-2 md:gap-8 md:items-center relative">
                   {/* Mobile marker */}
-                  <div className="flex md:hidden w-10 h-10 rounded-full bg-[var(--accent)] items-center justify-center mr-4 flex-shrink-0">
+                  <div className="flex md:hidden w-10 h-10 rounded-full bg-[var(--brand-secondary)] items-center justify-center mr-4 flex-shrink-0">
                     <Upload className="w-5 h-5 text-white" aria-hidden="true" />
                   </div>
 
                   {/* Desktop: Icon centered on page (absolutely positioned) */}
-                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[var(--ink)] border-3 border-[var(--accent)] items-center justify-center z-10">
-                    <Upload className="w-5 h-5 text-[var(--accent)]" aria-hidden="true" />
+                  <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-[var(--ink)] border-3 border-[var(--brand-secondary)] items-center justify-center z-10">
+                    <Upload className="w-5 h-5 text-[var(--brand-secondary)]" aria-hidden="true" />
                   </div>
 
                   {/* Desktop: Empty left column */}
@@ -288,7 +288,7 @@ export default function LandingPage() {
 
                   {/* Desktop: Text on right */}
                   <div className="flex-1 md:pl-12">
-                    <p className="text-mono text-[var(--accent)] text-xs tracking-widest mb-2">DAY 1</p>
+                    <p className="text-mono text-[var(--brand-secondary)] text-xs tracking-widest mb-2">DAY 1</p>
                     <p className="text-[var(--cream)] text-lg leading-relaxed">
                       Maria, an accountant in Ottawa, uploaded her clients&apos; financial documents to ChatGPT to help prepare tax summaries faster.
                     </p>
@@ -447,13 +447,13 @@ export default function LandingPage() {
         <section id="how-it-works" className="py-16 md:py-24 bg-[var(--ink)]">
           <div className="container-lg">
             <div className="mb-12 stagger">
-              <p className="text-mono text-[var(--accent)] text-sm mb-3 tracking-widest">
+              <p className="text-mono text-[var(--brand-secondary)] text-sm mb-3 tracking-widest">
                 GET STARTED
               </p>
               <h2 className="text-display text-display-md text-[var(--cream)] mb-4">
                 Choose Your Path
               </h2>
-              <div className="w-24 h-[3px] bg-[var(--accent)]" />
+              <div className="w-24 h-[3px] bg-[var(--brand-secondary)]" />
             </div>
 
             {/* Side by Side Options */}
@@ -463,8 +463,8 @@ export default function LandingPage() {
                 <div className="p-6 md:p-8 border-b-2 border-[var(--cream)] flex items-center justify-between">
                   <div>
                     <div className="flex items-center gap-3 mb-1">
-                      <Clock className="w-5 h-5 text-[var(--accent)]" aria-hidden="true" />
-                      <span className="text-mono text-xs tracking-widest text-[var(--accent)]">
+                      <Clock className="w-5 h-5 text-[var(--brand-secondary)]" aria-hidden="true" />
+                      <span className="text-mono text-xs tracking-widest text-[var(--brand-secondary)]">
                         10 MINUTES
                       </span>
                     </div>
@@ -489,7 +489,7 @@ export default function LandingPage() {
                         key={step.num}
                         className="flex items-center gap-4 py-2 border-b border-[var(--cream)]/10"
                       >
-                        <span className="text-display text-lg text-[var(--accent)] tabular-nums w-8">
+                        <span className="text-display text-lg text-[var(--brand-secondary)] tabular-nums w-8">
                           {step.num}
                         </span>
                         <span className="text-sm text-[var(--cream)]/80">{step.title}</span>
@@ -525,7 +525,7 @@ export default function LandingPage() {
 
                   <div className="bg-[var(--ink)] p-4 mb-8 border border-[var(--cream)]/20">
                     <div className="flex items-center gap-3 mb-3">
-                      <Globe className="w-4 h-4 text-[var(--accent)]" aria-hidden="true" />
+                      <Globe className="w-4 h-4 text-[var(--brand-secondary)]" aria-hidden="true" />
                       <code className="text-mono text-[var(--cream)]/80 text-xs">
                         yourwebsite.com
                       </code>
@@ -555,7 +555,7 @@ export default function LandingPage() {
           <div className="container-lg">
             <div className="p-8 md:p-12 bg-[var(--ink)] text-[var(--cream)] border-2 border-[var(--ink)]">
               <div className="text-center mb-10">
-                <p className="text-mono text-[var(--accent)] text-sm mb-3 tracking-widest">
+                <p className="text-mono text-[var(--brand-secondary)] text-sm mb-3 tracking-widest">
                   WHAT YOU GET
                 </p>
                 <h3 className="text-display text-display-md">Your Report Includes</h3>
@@ -570,7 +570,7 @@ export default function LandingPage() {
                   { title: '30-60-90 Day Plan', desc: 'Prioritized action items' },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-[var(--accent)] mt-2 flex-shrink-0" aria-hidden="true" />
+                    <div className="w-2 h-2 bg-[var(--brand-secondary)] mt-2 flex-shrink-0" aria-hidden="true" />
                     <div>
                       <span className="text-[var(--cream)] font-medium block">{item.title}</span>
                       <span className="text-[var(--cream)]/60 text-sm">{item.desc}</span>
@@ -624,11 +624,11 @@ export default function LandingPage() {
       </main>
 
       {/* Footer */}
-      <footer className="py-8 bg-[var(--ink)] text-[var(--cream)] border-t-[3px] border-[var(--accent)]">
+      <footer className="py-8 bg-[var(--ink)] text-[var(--cream)] border-t-[3px] border-[var(--brand-secondary)]">
         <div className="container-lg">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[var(--accent)] flex items-center justify-center">
+              <div className="w-8 h-8 bg-[var(--brand-secondary)] flex items-center justify-center">
                 <Shield className="w-5 h-5 text-white" aria-hidden="true" />
               </div>
               <span className="text-mono text-sm">RESPONSIBLY</span>

@@ -62,6 +62,9 @@
   --accent-secondary-dark: var(--brand-secondary-dark);
   --accent-secondary-glow: rgba(0, 196, 167, 0.2);
 
+  /* Accent for dark backgrounds - high contrast teal (7.2:1 on black) */
+  --accent-on-dark: var(--brand-secondary);
+
   /* Risk levels - Using brand colors for consistency */
   --safe: var(--brand-secondary);        /* Teal for safe/success */
   --safe-bg: rgba(0, 196, 167, 0.1);
