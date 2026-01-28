@@ -13,7 +13,7 @@
 'use client';
 
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, Suspense } from 'react';
 import {
   FileText,
   Scale,
@@ -85,7 +85,12 @@ function isValidTab(tab: string | null): tab is TabId {
   return TABS.some((t) => t.id === tab);
 }
 
-export function ReportTabs({ report, className }: ReportTabsProps) {
+/**
+ * ReportTabsContent - Internal component that uses useSearchParams()
+ * Extracted to allow Suspense wrapping for Next.js App Router compatibility.
+ * This handles URL sync and tab state management.
+ */
+function ReportTabsContent({ report, className }: ReportTabsProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -215,5 +220,26 @@ export function ReportTabs({ report, className }: ReportTabsProps) {
         {renderTabContent()}
       </div>
     </div>
+  );
+}
+
+/**
+ * ReportTabs - Main component wrapper
+ * Wraps ReportTabsContent in Suspense boundary to handle useSearchParams() requirement.
+ * The loading fallback shows a skeleton state during static generation.
+ */
+export function ReportTabs({ report, className }: ReportTabsProps) {
+  return (
+    <Suspense fallback={
+      <div className={cn('w-full', className)}>
+        <div className="flex flex-wrap gap-1 p-1 bg-[var(--surface)] border-2 border-[var(--ink)] mb-6">
+          <div className="text-mono text-sm text-[var(--text-muted)] tracking-widest p-3">
+            LOADING TABS...
+          </div>
+        </div>
+      </div>
+    }>
+      <ReportTabsContent report={report} className={className} />
+    </Suspense>
   );
 }

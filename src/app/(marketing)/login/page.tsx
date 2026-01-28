@@ -7,12 +7,17 @@
 
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Shield, Lock, ArrowLeft, AlertCircle } from 'lucide-react';
 
-export default function LoginPage() {
+/**
+ * LoginForm component - extracted to enable Suspense wrapping
+ * This component uses useSearchParams() which requires a Suspense boundary
+ * for Next.js App Router static generation compatibility.
+ */
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const returnTo = searchParams.get('returnTo') || '/choose-assessment';
@@ -61,25 +66,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--cream)] flex flex-col">
-      {/* Header */}
-      <header className="border-b-[3px] border-[var(--ink)] bg-[var(--surface)] py-4">
-        <div className="container-lg">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-mono text-sm tracking-widest text-[var(--ink)] hover:text-[var(--accent)] transition-colors focus-ring"
-          >
-            <ArrowLeft className="w-4 h-4" aria-hidden="true" />
-            BACK TO HOME
-          </Link>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="flex-1 flex items-center justify-center px-4 py-12">
-        <div className="w-full max-w-md">
-          {/* Portal Identity */}
-          <div className="text-center mb-8">
+    <div className="w-full max-w-md">
+      {/* Portal Identity */}
+      <div className="text-center mb-8">
             <div className="inline-block mb-6">
               <div className="w-20 h-20 bg-[var(--ink)] border-[3px] border-[var(--ink)] flex items-center justify-center relative">
                 <Shield className="w-12 h-12 text-[var(--cream)]" aria-hidden="true" />
@@ -241,6 +230,41 @@ export default function LoginPage() {
             </p>
           </div>
         </div>
+  );
+}
+
+/**
+ * LoginPage - Main page component
+ * Wraps LoginForm in Suspense boundary to handle useSearchParams() requirement.
+ * The loading fallback provides a consistent experience during static generation.
+ */
+export default function LoginPage() {
+  return (
+    <div className="min-h-screen bg-[var(--cream)] flex flex-col">
+      {/* Header */}
+      <header className="border-b-[3px] border-[var(--ink)] bg-[var(--surface)] py-4">
+        <div className="container-lg">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-mono text-sm tracking-widest text-[var(--ink)] hover:text-[var(--accent)] transition-colors focus-ring"
+          >
+            <ArrowLeft className="w-4 h-4" aria-hidden="true" />
+            BACK TO HOME
+          </Link>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="flex-1 flex items-center justify-center px-4 py-12">
+        <Suspense fallback={
+          <div className="w-full max-w-md text-center">
+            <div className="text-mono text-sm text-[var(--text-muted)] tracking-widest">
+              LOADING...
+            </div>
+          </div>
+        }>
+          <LoginForm />
+        </Suspense>
       </main>
     </div>
   );

@@ -7,14 +7,19 @@
 
 'use client';
 
-import { useState, FormEvent, useEffect } from 'react';
+import { useState, FormEvent, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Shield, UserPlus, ArrowLeft, AlertCircle } from 'lucide-react';
 
 type PasswordStrength = 'weak' | 'medium' | 'strong';
 
-export default function SignUpPage() {
+/**
+ * SignupForm component - extracted to enable Suspense wrapping
+ * This component uses useSearchParams() which requires a Suspense boundary
+ * for Next.js App Router static generation compatibility.
+ */
+function SignupForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const returnTo = searchParams.get('returnTo') || '/choose-assessment';
@@ -133,25 +138,9 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--cream)] flex flex-col">
-      {/* Header */}
-      <header className="border-b-[3px] border-[var(--ink)] bg-[var(--surface)] py-4">
-        <div className="container-lg">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-mono text-sm tracking-widest text-[var(--ink)] hover:text-[var(--accent)] transition-colors focus-ring"
-          >
-            <ArrowLeft className="w-4 h-4" aria-hidden="true" />
-            BACK TO HOME
-          </Link>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="flex-1 flex items-center justify-center px-4 py-12">
-        <div className="w-full max-w-md">
-          {/* Portal Identity */}
-          <div className="text-center mb-8">
+    <div className="w-full max-w-md">
+      {/* Portal Identity */}
+      <div className="text-center mb-8">
             <div className="inline-block mb-6">
               <div className="w-20 h-20 bg-[var(--ink)] border-[3px] border-[var(--ink)] flex items-center justify-center relative">
                 <Shield className="w-12 h-12 text-[var(--cream)]" aria-hidden="true" />
@@ -395,6 +384,41 @@ export default function SignUpPage() {
             </p>
           </div>
         </div>
+  );
+}
+
+/**
+ * SignUpPage - Main page component
+ * Wraps SignupForm in Suspense boundary to handle useSearchParams() requirement.
+ * The loading fallback provides a consistent experience during static generation.
+ */
+export default function SignUpPage() {
+  return (
+    <div className="min-h-screen bg-[var(--cream)] flex flex-col">
+      {/* Header */}
+      <header className="border-b-[3px] border-[var(--ink)] bg-[var(--surface)] py-4">
+        <div className="container-lg">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-mono text-sm tracking-widest text-[var(--ink)] hover:text-[var(--accent)] transition-colors focus-ring"
+          >
+            <ArrowLeft className="w-4 h-4" aria-hidden="true" />
+            BACK TO HOME
+          </Link>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="flex-1 flex items-center justify-center px-4 py-12">
+        <Suspense fallback={
+          <div className="w-full max-w-md text-center">
+            <div className="text-mono text-sm text-[var(--text-muted)] tracking-widest">
+              LOADING...
+            </div>
+          </div>
+        }>
+          <SignupForm />
+        </Suspense>
       </main>
     </div>
   );
