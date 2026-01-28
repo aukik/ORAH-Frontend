@@ -171,6 +171,29 @@ export default function QuickScanResultsPage() {
 
       const data = await response.json();
 
+      // Create assessment data for report generation
+      const assessmentData = {
+        businessName: businessName || scanResults.extractedInfo.businessName || '',
+        industryId: industryId || scanResults.extractedInfo.industryDetected || '',
+        provinceCode: provinceCode || scanResults.extractedInfo.provinceDetected || 'ON',
+        employeeCount: employeeCount || 'SMALL',
+        website: scanResults.websiteUrl,
+        aiTools: [...scanResults.extractedInfo.aiToolsMentioned, ...additionalAiTools],
+        dataTypes: [...scanResults.extractedInfo.dataTypesIndicated, ...additionalDataTypes],
+        usagePatterns: scanResults.extractedInfo.mentionsCustomerData ? ['CUSTOMER_SERVICE'] : ['INTERNAL_ONLY'],
+        hasWrittenPolicies: scanResults.extractedInfo.hasPrivacyPolicy,
+        safeguards: [
+          ...(scanResults.extractedInfo.hasPrivacyPolicy ? ['ai_privacy_policy'] : []),
+          ...(scanResults.extractedInfo.mentionsConsent ? ['customer_consent'] : []),
+          ...(scanResults.extractedInfo.mentionsPipeda ? ['pipeda_compliance'] : []),
+        ],
+        email: email || undefined,
+        assessmentPath: 'QUICK_SCAN' as const,
+      };
+
+      // Save assessment data for report generation
+      sessionStorage.setItem('ai-responsibility-assessment', JSON.stringify(assessmentData));
+
       // Clear scan results from storage
       sessionStorage.removeItem('quick-scan-results');
 
@@ -181,6 +204,29 @@ export default function QuickScanResultsPage() {
 
       // Generate mock assessment ID and navigate to report
       const mockAssessmentId = `mock-${Date.now()}`;
+
+      // Create assessment data for report generation
+      const assessmentData = {
+        businessName: businessName || scanResults.extractedInfo.businessName || '',
+        industryId: industryId || scanResults.extractedInfo.industryDetected || '',
+        provinceCode: provinceCode || scanResults.extractedInfo.provinceDetected || 'ON',
+        employeeCount: employeeCount || 'SMALL',
+        website: scanResults.websiteUrl,
+        aiTools: [...scanResults.extractedInfo.aiToolsMentioned, ...additionalAiTools],
+        dataTypes: [...scanResults.extractedInfo.dataTypesIndicated, ...additionalDataTypes],
+        usagePatterns: scanResults.extractedInfo.mentionsCustomerData ? ['CUSTOMER_SERVICE'] : ['INTERNAL_ONLY'],
+        hasWrittenPolicies: scanResults.extractedInfo.hasPrivacyPolicy,
+        safeguards: [
+          ...(scanResults.extractedInfo.hasPrivacyPolicy ? ['ai_privacy_policy'] : []),
+          ...(scanResults.extractedInfo.mentionsConsent ? ['customer_consent'] : []),
+          ...(scanResults.extractedInfo.mentionsPipeda ? ['pipeda_compliance'] : []),
+        ],
+        email: email || undefined,
+        assessmentPath: 'QUICK_SCAN' as const,
+      };
+
+      // Save assessment data for report generation
+      sessionStorage.setItem('ai-responsibility-assessment', JSON.stringify(assessmentData));
 
       // Clear scan results from storage
       sessionStorage.removeItem('quick-scan-results');
