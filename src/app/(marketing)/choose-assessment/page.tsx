@@ -64,7 +64,7 @@ export default function ChooseAssessmentPage() {
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-0 border-[3px] border-[var(--ink)] relative">
             {/* Straight vertical accent stripe separator - visible only on desktop */}
             <div
-              className="hidden md:block absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[3px] bg-[var(--accent)] z-10"
+              className="hidden md:block absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[3px] bg-[var(--brand-secondary)] z-10"
               aria-hidden="true"
             />
 
@@ -73,15 +73,15 @@ export default function ChooseAssessmentPage() {
               {/* Icon/Illustration */}
               <div className="mb-6">
                 <div className="inline-flex items-center gap-3 mb-4">
-                  <Clock className="w-8 h-8 text-[var(--accent)]" aria-hidden="true" />
-                  <span className="text-mono text-xs tracking-widest text-[var(--accent)]">
+                  <Clock className="w-8 h-8 text-[var(--accent-on-dark)]" aria-hidden="true" />
+                  <span className="text-mono text-xs tracking-widest text-[var(--accent-on-dark)]">
                     10 MINUTES
                   </span>
                 </div>
                 <h2 className="text-display text-display-sm text-[var(--cream)] mb-3">
                   Full Assessment
                 </h2>
-                <div className="w-16 h-[3px] bg-[var(--accent)]" aria-hidden="true" />
+                <div className="w-16 h-[3px] bg-[var(--accent-on-dark)]" aria-hidden="true" />
               </div>
 
               {/* Description */}
@@ -102,7 +102,7 @@ export default function ChooseAssessmentPage() {
                     key={step.num}
                     className="flex items-start gap-3 py-2 border-b border-[var(--cream)]/10"
                   >
-                    <span className="text-display text-xl text-[var(--accent)] tabular-nums w-10 flex-shrink-0">
+                    <span className="text-display text-xl text-[var(--accent-on-dark)] tabular-nums w-10 flex-shrink-0">
                       {step.num}
                     </span>
                     <div className="flex-1">
@@ -118,7 +118,7 @@ export default function ChooseAssessmentPage() {
               <div className="mt-auto">
                 <Link
                   href="/business-profile"
-                  className="btn-brutal w-full justify-center"
+                  className="btn-brutal-on-dark w-full justify-center"
                 >
                   Start Assessment
                   <ArrowRight className="w-5 h-5" aria-hidden="true" />
@@ -198,7 +198,7 @@ export default function ChooseAssessmentPage() {
       </main>
 
       {/* Footer */}
-      <footer className="py-6 bg-[var(--ink)] text-[var(--cream)]/60 border-t-[3px] border-[var(--accent)]">
+      <footer className="py-6 bg-[var(--ink)] text-[var(--cream)]/60 border-t-[3px] border-[var(--accent-on-dark)]">
         <div className="container-lg text-center">
           <p className="text-mono text-xs">
             Educational guidance only. Not legal advice.

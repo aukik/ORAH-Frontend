@@ -167,6 +167,7 @@
   --color-secondary: var(--brand-secondary);
   --color-tertiary: var(--brand-tertiary);
   --color-accent: var(--accent);
+  --color-accent-on-dark: var(--accent-on-dark);
   --color-safe: var(--safe);
   --color-caution: var(--caution);
   --color-alert: var(--alert);
@@ -472,6 +473,104 @@ p {
   outline-offset: 4px;
 }
 
+/* Brutal button variant for dark backgrounds - Teal accent for visibility
+ * Context: .btn-brutal uses Dark Blue bg which is invisible on black (1.9:1 contrast).
+ * On dark backgrounds, we use Bright Teal (#00C4A7) which achieves 7.2:1 on black.
+ * Uses dark ink text for maximum readability on the bright teal background.
+ */
+.btn-brutal-on-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border: 3px solid var(--brand-secondary);
+  background: var(--brand-secondary);
+  color: var(--ink);
+  cursor: pointer;
+  position: relative;
+  box-shadow: 4px 4px 0 var(--brand-secondary-dark);
+  transition: transform var(--transition-snap), box-shadow var(--transition-snap), background var(--transition-smooth);
+  overflow: hidden;
+}
+
+.btn-brutal-on-dark::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease-out, height 0.6s ease-out;
+}
+
+.btn-brutal-on-dark:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-brutal-on-dark:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--brand-secondary-dark), 0 0 20px var(--accent-secondary-glow);
+  background: var(--brand-secondary-light);
+}
+
+.btn-brutal-on-dark:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--brand-secondary-dark);
+}
+
+.btn-brutal-on-dark:focus-visible {
+  outline: 3px solid var(--cream);
+  outline-offset: 4px;
+}
+
+/* Ghost/outline button for dark backgrounds - Teal border */
+.btn-brutal-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border: 3px solid var(--brand-secondary);
+  background: transparent;
+  color: var(--brand-secondary);
+  cursor: pointer;
+  position: relative;
+  box-shadow: 4px 4px 0 var(--brand-secondary-dark);
+  transition: transform var(--transition-snap), box-shadow var(--transition-snap), background var(--transition-smooth), color var(--transition-smooth);
+}
+
+.btn-brutal-outline-dark:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--brand-secondary-dark);
+  background: var(--brand-secondary);
+  color: var(--ink);
+}
+
+.btn-brutal-outline-dark:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--brand-secondary-dark);
+}
+
+.btn-brutal-outline-dark:focus-visible {
+  outline: 3px solid var(--cream);
+  outline-offset: 4px;
+}
+
 /* Ghost button */
 .btn-ghost {
   display: inline-flex;
@@ -701,7 +800,7 @@ p {
   color: var(--cream);
   font-size: 0.875rem;
   font-family: var(--font-body);
-  border: 2px solid var(--accent);
+  border: 2px solid var(--accent-on-dark);
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--transition-smooth), visibility var(--transition-smooth);

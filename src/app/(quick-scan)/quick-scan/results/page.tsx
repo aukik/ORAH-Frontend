@@ -656,7 +656,7 @@ export default function QuickScanResultsPage() {
                 <div className="flex items-center justify-between">
                   <span className="text-[var(--cream)]/70">Website</span>
                   <span className="flex items-center gap-2">
-                    <Globe className="w-4 h-4 text-[var(--accent)]" />
+                    <Globe className="w-4 h-4 text-[var(--accent-on-dark)]" />
                     <span className="truncate max-w-[120px]">
                       {scanResults.websiteUrl.replace(/^https?:\/\//, '')}
                     </span>
@@ -706,7 +706,7 @@ export default function QuickScanResultsPage() {
                   type="button"
                   onClick={() => handleSubmit(false)}
                   disabled={isSubmitting || !canSubmit}
-                  className="w-full btn-brutal bg-[var(--accent)] border-[var(--cream)] hover:bg-[var(--accent-dark)] disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full btn-brutal-on-dark disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>

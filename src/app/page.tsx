@@ -75,7 +75,7 @@ function ButtonWithTooltip({
   // Tooltip element - rendered via portal at body level to bypass clip-path
   const tooltipElement = isVisible && isMounted ? (
     <div
-      className="fixed w-80 p-4 bg-[var(--ink)] text-[var(--cream)] text-sm border-2 border-[var(--accent)] shadow-lg"
+      className="fixed w-80 p-4 bg-[var(--ink)] text-[var(--cream)] text-sm border-2 border-[var(--brand-secondary)] shadow-lg"
       style={{
         top: `${position.top}px`,
         left: `${position.left}px`,
@@ -84,7 +84,7 @@ function ButtonWithTooltip({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-[var(--ink)] border-t-2 border-l-2 border-[var(--accent)] rotate-45" />
+      <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-[var(--ink)] border-t-2 border-l-2 border-[var(--brand-secondary)] rotate-45" />
       <p className="font-medium mb-1">{tooltipTitle}</p>
       <p>{tooltipContent}</p>
     </div>
@@ -150,13 +150,13 @@ export default function LandingPage() {
 
       <main id="main">
         {/* Hero Section */}
-        <section className="bg-[var(--ink)] text-[var(--cream)] py-16 md:py-24 diagonal-cut relative">
+        <section className="bg-[var(--brand-primary)] text-[var(--cream)] py-16 md:py-24 diagonal-cut relative">
           {/* Gradient background accent */}
-          <div className="absolute inset-0 opacity-30" style={{
-            background: 'radial-gradient(circle at 20% 50%, var(--accent) 0%, transparent 50%)'
+          <div className="absolute inset-0 opacity-15" style={{
+            background: 'radial-gradient(circle at 20% 50%, var(--brand-tertiary) 0%, transparent 50%)'
           }} aria-hidden="true" />
-          <div className="absolute inset-0 opacity-20" style={{
-            background: 'radial-gradient(circle at 80% 20%, var(--accent-dark) 0%, transparent 40%)'
+          <div className="absolute inset-0 opacity-10" style={{
+            background: 'radial-gradient(circle at 80% 20%, var(--brand-tertiary) 0%, transparent 40%)'
           }} aria-hidden="true" />
           <div className="container-lg relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -182,7 +182,7 @@ export default function LandingPage() {
                   {/* Full Assessment button with hover tooltip */}
                   <ButtonWithTooltip
                     href="/business-profile"
-                    className="btn-brutal"
+                    className="btn-brutal-on-dark"
                     tooltipTitle="Comprehensive Assessment"
                     tooltipContent="Provide your business data accurately through our guided 5-step form for a detailed compliance analysis tailored to your specific situation."
                   >
@@ -193,7 +193,7 @@ export default function LandingPage() {
                   {/* Quick Scan button with hover tooltip */}
                   <ButtonWithTooltip
                     href="/quick-scan"
-                    className="btn-brutal bg-[var(--accent)] text-white border-[var(--accent)] hover:bg-[var(--accent)]/90"
+                    className="btn-brutal-outline-dark"
                     tooltipTitle="Automated Web Scan"
                     tooltipContent="Enter your website URL and we'll automatically extract your business profile, detect AI tool usage, and analyze your public-facing privacy practices."
                   >
@@ -219,7 +219,7 @@ export default function LandingPage() {
         </section>
 
         {/* Stats Bar */}
-        <section className="bg-[var(--accent)] text-white py-4 md:py-6 diagonal-cut-reverse">
+        <section className="bg-[var(--ink-light)] text-white py-4 md:py-6 diagonal-cut-reverse">
           <div className="container-lg">
             <div className="grid grid-cols-3 gap-8 text-center">
               <div>
@@ -242,13 +242,13 @@ export default function LandingPage() {
         <section className="bg-[var(--ink)] relative py-12 md:py-16">
           {/* Accent glow overlays for storytelling atmosphere */}
           <div
-            className="absolute inset-0 opacity-20"
-            style={{ background: 'linear-gradient(135deg, var(--accent) 0%, transparent 50%)' }}
+            className="absolute inset-0 opacity-10"
+            style={{ background: 'linear-gradient(135deg, var(--brand-secondary) 0%, transparent 50%)' }}
             aria-hidden="true"
           />
           <div
-            className="absolute inset-0 opacity-10"
-            style={{ background: 'radial-gradient(circle at 70% 80%, var(--accent) 0%, transparent 40%)' }}
+            className="absolute inset-0 opacity-8"
+            style={{ background: 'radial-gradient(circle at 70% 80%, var(--brand-tertiary) 0%, transparent 40%)' }}
             aria-hidden="true"
           />
 
@@ -498,7 +498,7 @@ export default function LandingPage() {
                   </div>
 
                   <div className="mt-auto">
-                    <Link href="/business-profile" className="btn-brutal w-full justify-center">
+                    <Link href="/business-profile" className="btn-brutal-on-dark w-full justify-center">
                       Start Full Assessment
                       <ArrowRight className="w-5 h-5" aria-hidden="true" />
                     </Link>
@@ -508,7 +508,7 @@ export default function LandingPage() {
 
               {/* Option 2: Quick Scan */}
               <div className="flex flex-col">
-                <div className="p-6 md:p-8 border-b-2 border-[var(--cream)] bg-[var(--accent)]">
+                <div className="p-6 md:p-8 border-b-2 border-[var(--cream)] bg-[var(--brand-secondary)]">
                   <div className="flex items-center gap-3 mb-1">
                     <Zap className="w-5 h-5 text-white" aria-hidden="true" />
                     <span className="text-mono text-xs tracking-widest text-white/80">
@@ -539,7 +539,7 @@ export default function LandingPage() {
                   </div>
 
                   <div className="mt-auto">
-                    <Link href="/quick-scan" className="btn-brutal w-full justify-center">
+                    <Link href="/quick-scan" className="btn-brutal-on-dark w-full justify-center">
                       Try Quick Scan
                       <Zap className="w-5 h-5" aria-hidden="true" />
                     </Link>
