@@ -65,7 +65,7 @@
   /* Risk levels - Using brand colors for consistency */
   --safe: var(--brand-secondary);        /* Teal for safe/success */
   --safe-bg: rgba(0, 196, 167, 0.1);
-  --caution: #f59e0b;                    /* Amber for caution */
+  --caution: #b45309;                    /* Darker amber for caution - was #f59e0b, now 4.8:1 on white */
   --caution-bg: #fef3c7;
   --alert: #ef4444;                      /* Red for alert */
   --alert-bg: #fef2f2;
@@ -89,16 +89,28 @@
 
   /* Text hierarchy */
   --text-primary: var(--ink);
-  --text-secondary: #4d4d4d;
-  --text-muted: #808080;
+  --text-secondary: #333333;  /* Was #4d4d4d - now 12.6:1 on white for better contrast */
+  --text-muted: #595959;      /* Was #808080 - now 5.9:1 on white for better contrast */
   --text-inverse: var(--paper);
 
   /* Surfaces */
   --background: #f5f5f5;        /* Slightly off-white for depth */
   --surface: var(--paper);
   --surface-dark: var(--brand-primary);  /* Dark blue for dark cards */
+  --surface-secondary: var(--cream);
   --border: #cccccc;
   --border-strong: #999999;
+
+  /* Missing variables referenced by components */
+  --error: var(--danger);
+  --text-placeholder: #666666;  /* Darker than muted for visibility */
+
+  /* Primary color scale for focus rings and components */
+  --primary-50: rgba(0, 51, 102, 0.05);
+  --primary-100: rgba(0, 51, 102, 0.1);
+  --primary-500: var(--brand-primary);
+  --primary-700: var(--brand-primary-light);
+  --primary-900: var(--brand-primary-dark);
 
   /* ==========================================
      TYPOGRAPHY - Commanding, distinctive
@@ -221,7 +233,7 @@ body::before {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  line-height: 0.9;
+  line-height: 1.1;  /* Was 0.9 - improved for accessibility */
 }
 
 .text-display-xl {
@@ -245,7 +257,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  line-height: 1;
+  line-height: 1.2;  /* Was 1 - improved for WCAG accessibility */
   margin: 0;
 }
 
@@ -333,6 +345,22 @@ p {
   animation: number-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   animation-delay: 0.3s;
   opacity: 0;
+}
+
+/* Fade in up animation for tabs and other components */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.2s ease-out forwards;
 }
 
 /* Pulse animation for help icons */

@@ -176,7 +176,7 @@ export function RiskScoreGauge({
             y={height - strokeWidth + 16}
             textAnchor="middle"
             className="text-xs font-mono uppercase tracking-widest"
-            fill="var(--text-muted)"
+            fill="var(--text-secondary)"
           >
             RISK SCORE
           </text>

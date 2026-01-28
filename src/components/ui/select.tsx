@@ -24,9 +24,9 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      'flex h-11 w-full items-center justify-between rounded-lg border bg-[var(--surface)] px-4 py-2 text-base',
+      'flex h-11 w-full items-center justify-between border bg-[var(--surface)] px-4 py-2 text-base',
       'placeholder:text-[var(--text-muted)]',
-      'focus:outline-none focus:ring-2 focus:ring-[var(--primary-500)] focus:ring-offset-1',
+      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)] focus-visible:ring-offset-1',
       'disabled:cursor-not-allowed disabled:opacity-50',
       '[&>span]:line-clamp-1',
       error
@@ -39,7 +39,7 @@ const SelectTrigger = React.forwardRef<
   >
     {children}
     <SelectPrimitive.Icon asChild>
-      <ChevronDown className="h-4 w-4 opacity-50" />
+      <ChevronDown className="h-4 w-4 opacity-50" aria-hidden="true" />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ));
@@ -88,7 +88,7 @@ const SelectContent = React.forwardRef<
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
-        'relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--surface)] shadow-lg',
+        'relative z-50 max-h-96 min-w-[8rem] overflow-hidden border border-[var(--border)] bg-[var(--surface)] shadow-lg',
         'data-[state=open]:animate-in data-[state=closed]:animate-out',
         'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
         'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95',
@@ -139,7 +139,7 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      'relative flex w-full cursor-pointer select-none items-center rounded-md py-2 pl-8 pr-2 text-sm outline-none',
+      'relative flex w-full cursor-pointer select-none items-center py-2 pl-8 pr-2 text-sm outline-none',
       'focus:bg-[var(--background)] focus:text-[var(--text-primary)]',
       'data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       className

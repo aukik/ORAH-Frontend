@@ -31,8 +31,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         type={type}
         id={id}
         className={cn(
-          // Base styles
-          'flex h-11 w-full rounded-lg border bg-[var(--surface)] px-4 py-2 text-base',
+          // Base styles - no rounded corners for brutalist aesthetic
+          'flex h-11 w-full border bg-[var(--surface)] px-4 py-2 text-base',
           // Placeholder
           'placeholder:text-[var(--text-placeholder)]',
           // Explicit transition properties - no 'all'

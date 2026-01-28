@@ -29,7 +29,7 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      'inline-flex h-12 items-center justify-start gap-1 rounded-lg bg-[var(--surface-secondary)] p-1 text-[var(--text-secondary)]',
+      'inline-flex h-12 items-center justify-start gap-1 bg-[var(--surface-secondary)] p-1 text-[var(--text-secondary)]',
       className
     )}
     // Keyboard navigation is handled by Radix - arrow keys work out of the box
@@ -45,11 +45,11 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      'inline-flex items-center justify-center whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium',
+      'inline-flex items-center justify-center whitespace-nowrap px-4 py-2 text-sm font-medium',
       // Explicit transition - not 'all'
       'transition-[color,background-color,box-shadow] duration-150 ease-out',
       // Focus state
-      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00C4A7] focus-visible:ring-offset-2',
+      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-secondary)] focus-visible:ring-offset-2',
       // Disabled state
       'disabled:pointer-events-none disabled:opacity-50',
       // Active state
@@ -71,7 +71,7 @@ const TabsContent = React.forwardRef<
   <TabsPrimitive.Content
     ref={ref}
     className={cn(
-      'mt-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00C4A7] focus-visible:ring-offset-2',
+      'mt-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-secondary)] focus-visible:ring-offset-2',
       // Fade in animation for tab content
       'data-[state=active]:animate-fade-in-up',
       className

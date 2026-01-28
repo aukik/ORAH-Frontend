@@ -13,11 +13,12 @@ const buttonVariants = cva(
   // Base styles - shared across all variants
   // Using explicit transition properties (not 'all') per accessibility guidelines
   // Added transform for hover lift effect with spring physics timing
+  // No rounded corners - brutalist sharp angles
   [
-    'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold',
+    'inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold',
     'transition-[color,background-color,border-color,box-shadow,transform] duration-200',
     'hover:-translate-y-0.5 active:translate-y-0',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00C4A7] focus-visible:ring-offset-2',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-secondary)] focus-visible:ring-offset-2',
     'disabled:pointer-events-none disabled:opacity-50 disabled:hover:translate-y-0',
     '[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
   ],
@@ -25,18 +26,18 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-[#003366] text-white shadow-sm hover:bg-[#0E7CEB] hover:shadow-md active:bg-[#004d99] active:shadow-sm',
+          'bg-[var(--brand-primary)] text-white shadow-sm hover:bg-[var(--brand-tertiary)] hover:shadow-md active:bg-[var(--brand-primary-dark)] active:shadow-sm',
         secondary:
-          'bg-[#00C4A7] text-white shadow-sm hover:bg-[#00e6c4] hover:shadow-md active:bg-[#009a84] active:shadow-sm',
+          'bg-[var(--brand-secondary)] text-white shadow-sm hover:bg-[var(--brand-secondary-light)] hover:shadow-md active:bg-[var(--brand-secondary-dark)] active:shadow-sm',
         outline:
-          'border-2 border-[#003366] text-[#003366] bg-transparent hover:bg-[rgba(0,51,102,0.05)] hover:shadow-md active:bg-[rgba(0,51,102,0.1)]',
+          'border-2 border-[var(--brand-primary)] text-[var(--brand-primary)] bg-transparent hover:bg-[var(--primary-50)] hover:shadow-md active:bg-[var(--primary-100)]',
         ghost:
-          'text-[var(--text-primary)] hover:bg-[#E6E6E6] active:bg-[#cccccc] hover:translate-y-0',
+          'text-[var(--text-primary)] hover:bg-[var(--cream)] active:bg-[var(--cream-dark)] hover:translate-y-0',
         danger:
-          'bg-[#dc2626] text-white shadow-sm hover:bg-[#b91c1c] hover:shadow-md active:bg-[#991b1b] active:shadow-sm',
+          'bg-[var(--danger)] text-white shadow-sm hover:bg-[#b91c1c] hover:shadow-md active:bg-[var(--critical)] active:shadow-sm',
         success:
-          'bg-[#00C4A7] text-white shadow-sm hover:bg-[#00e6c4] hover:shadow-md active:bg-[#009a84] active:shadow-sm',
-        link: 'text-[#0E7CEB] underline-offset-4 hover:underline p-0 h-auto font-normal hover:translate-y-0',
+          'bg-[var(--brand-secondary)] text-white shadow-sm hover:bg-[var(--brand-secondary-light)] hover:shadow-md active:bg-[var(--brand-secondary-dark)] active:shadow-sm',
+        link: 'text-[var(--brand-tertiary)] underline-offset-4 hover:underline p-0 h-auto font-normal hover:translate-y-0',
       },
       size: {
         sm: 'h-9 px-4 text-sm',
