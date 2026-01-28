@@ -49,7 +49,7 @@ const TabsTrigger = React.forwardRef<
       // Explicit transition - not 'all'
       'transition-[color,background-color,box-shadow] duration-150 ease-out',
       // Focus state
-      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)] focus-visible:ring-offset-2',
+      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00C4A7] focus-visible:ring-offset-2',
       // Disabled state
       'disabled:pointer-events-none disabled:opacity-50',
       // Active state
@@ -71,7 +71,7 @@ const TabsContent = React.forwardRef<
   <TabsPrimitive.Content
     ref={ref}
     className={cn(
-      'mt-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-500)] focus-visible:ring-offset-2',
+      'mt-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00C4A7] focus-visible:ring-offset-2',
       // Fade in animation for tab content
       'data-[state=active]:animate-fade-in-up',
       className
