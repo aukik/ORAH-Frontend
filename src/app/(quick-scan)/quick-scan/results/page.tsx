@@ -649,7 +649,7 @@ export default function QuickScanResultsPage() {
           {/* Right Column - Summary & Actions */}
           <div className="space-y-6">
             {/* Summary Card */}
-            <div className="border-2 border-[var(--ink)] bg-[var(--ink)] text-[var(--cream)] p-6 sticky top-4">
+            <div className="border-2 border-[var(--text-secondary)] bg-[var(--text-secondary)] text-[var(--cream)] p-6 sticky top-4">
               <h3 className="text-display text-xl mb-6">Scan Summary</h3>
 
               <div className="space-y-4 text-sm">

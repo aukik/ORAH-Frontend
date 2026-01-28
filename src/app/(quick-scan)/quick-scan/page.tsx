@@ -356,7 +356,7 @@ export default function QuickScanPage() {
 
             {/* Scanning Indicator */}
             {isScanning && (
-              <div className="mt-6 p-5 bg-[var(--ink)] text-[var(--cream)] border-2 border-[var(--ink)]">
+              <div className="mt-6 p-5 bg-[var(--ink-light)] text-[var(--cream)] border-2 border-[var(--ink-light)]">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-2 h-2 bg-[var(--accent-on-dark)] animate-pulse" aria-hidden="true" />
                   <span className="text-mono text-sm text-[var(--accent-on-dark)]">

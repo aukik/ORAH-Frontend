@@ -150,7 +150,7 @@ export default function LandingPage() {
 
       <main id="main">
         {/* Hero Section */}
-        <section className="bg-[var(--brand-primary)] text-[var(--cream)] py-16 md:py-24 diagonal-cut relative">
+        <section className="bg-[var(--ink-light)] text-[var(--cream)] py-16 md:py-24 diagonal-cut relative">
           {/* Gradient background accent */}
           <div className="absolute inset-0 opacity-15" style={{
             background: 'radial-gradient(circle at 20% 50%, var(--brand-tertiary) 0%, transparent 50%)'
@@ -219,7 +219,7 @@ export default function LandingPage() {
         </section>
 
         {/* Stats Bar */}
-        <section className="bg-[var(--ink-light)] text-white py-4 md:py-6 diagonal-cut-reverse">
+        <section className="bg-[var(--brand-primary)] text-white py-4 md:py-6 diagonal-cut-reverse">
           <div className="container-lg">
             <div className="grid grid-cols-3 gap-8 text-center">
               <div>
@@ -239,18 +239,7 @@ export default function LandingPage() {
         </section>
 
         {/* Maria's Story - Timeline/Journey */}
-        <section className="bg-[var(--ink)] relative py-12 md:py-16">
-          {/* Accent glow overlays for storytelling atmosphere */}
-          <div
-            className="absolute inset-0 opacity-10"
-            style={{ background: 'linear-gradient(135deg, var(--brand-secondary) 0%, transparent 50%)' }}
-            aria-hidden="true"
-          />
-          <div
-            className="absolute inset-0 opacity-8"
-            style={{ background: 'radial-gradient(circle at 70% 80%, var(--brand-tertiary) 0%, transparent 40%)' }}
-            aria-hidden="true"
-          />
+        <section className="bg-[var(--ink-light)] relative py-12 md:py-16">
 
           <div className="container-lg relative z-10">
             {/* Section header */}
@@ -444,7 +433,7 @@ export default function LandingPage() {
         </section>
 
         {/* Two Options Side by Side */}
-        <section id="how-it-works" className="py-16 md:py-24 bg-[var(--ink)]">
+        <section id="how-it-works" className="py-16 md:py-24 bg-[var(--text-secondary)]">
           <div className="container-lg">
             <div className="mb-12 stagger">
               <p className="text-mono text-[var(--brand-secondary)] text-sm mb-3 tracking-widest">
@@ -463,8 +452,8 @@ export default function LandingPage() {
                 <div className="p-6 md:p-8 border-b-2 border-[var(--cream)] flex items-center justify-between">
                   <div>
                     <div className="flex items-center gap-3 mb-1">
-                      <Clock className="w-5 h-5 text-[var(--brand-secondary)]" aria-hidden="true" />
-                      <span className="text-mono text-xs tracking-widest text-[var(--brand-secondary)]">
+                      <Clock className="w-5 h-5 text-[var(--brand-tertiary)]" aria-hidden="true" />
+                      <span className="text-mono text-xs tracking-widest text-[var(--brand-tertiary)]">
                         10 MINUTES
                       </span>
                     </div>
@@ -489,7 +478,7 @@ export default function LandingPage() {
                         key={step.num}
                         className="flex items-center gap-4 py-2 border-b border-[var(--cream)]/10"
                       >
-                        <span className="text-display text-lg text-[var(--brand-secondary)] tabular-nums w-8">
+                        <span className="text-display text-lg text-[var(--brand-tertiary)] tabular-nums w-8">
                           {step.num}
                         </span>
                         <span className="text-sm text-[var(--cream)]/80">{step.title}</span>
@@ -498,7 +487,7 @@ export default function LandingPage() {
                   </div>
 
                   <div className="mt-auto">
-                    <Link href="/business-profile" className="btn-brutal-on-dark w-full justify-center">
+                    <Link href="/business-profile" className="btn-brutal w-full justify-center">
                       Start Full Assessment
                       <ArrowRight className="w-5 h-5" aria-hidden="true" />
                     </Link>
@@ -553,7 +542,7 @@ export default function LandingPage() {
         {/* Report Preview */}
         <section className="py-12 md:py-16 bg-[var(--surface)]">
           <div className="container-lg">
-            <div className="p-8 md:p-12 bg-[var(--ink)] text-[var(--cream)] border-2 border-[var(--ink)]">
+            <div className="p-8 md:p-12 bg-[var(--text-secondary)] text-[var(--cream)] border-2 border-[var(--text-secondary)]">
               <div className="text-center mb-10">
                 <p className="text-mono text-[var(--brand-secondary)] text-sm mb-3 tracking-widest">
                   WHAT YOU GET
@@ -624,7 +613,7 @@ export default function LandingPage() {
       </main>
 
       {/* Footer */}
-      <footer className="py-8 bg-[var(--ink)] text-[var(--cream)] border-t-[3px] border-[var(--brand-secondary)]">
+      <footer className="py-8 bg-[var(--text-secondary)] text-[var(--cream)] border-t-[3px] border-[var(--brand-secondary)]">
         <div className="container-lg">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">

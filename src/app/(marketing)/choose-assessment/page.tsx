@@ -69,7 +69,7 @@ export default function ChooseAssessmentPage() {
             />
 
             {/* Option 1: Manual Assessment (Larger, Primary) */}
-            <div className="bg-[var(--ink)] text-[var(--cream)] p-8 md:p-12 flex flex-col relative md:border-r-[3px] border-[var(--ink)]">
+            <div className="bg-[var(--text-secondary)] text-[var(--cream)] p-8 md:p-12 flex flex-col relative md:border-r-[3px] border-[var(--text-secondary)]">
               {/* Icon/Illustration */}
               <div className="mb-6">
                 <div className="inline-flex items-center gap-3 mb-4">
@@ -198,7 +198,7 @@ export default function ChooseAssessmentPage() {
       </main>
 
       {/* Footer */}
-      <footer className="py-6 bg-[var(--ink)] text-[var(--cream)]/60 border-t-[3px] border-[var(--accent-on-dark)]">
+      <footer className="py-6 bg-[var(--text-secondary)] text-[var(--cream)]/60 border-t-[3px] border-[var(--accent-on-dark)]">
         <div className="container-lg text-center">
           <p className="text-mono text-xs">
             Educational guidance only. Not legal advice.
