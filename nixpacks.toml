@@ -1,0 +1,5 @@
+# Nixpacks Configuration
+# Specifies Node.js version for Dokploy deployment
+
+[phases.setup]
+nixPkgs = ["nodejs_20"]
